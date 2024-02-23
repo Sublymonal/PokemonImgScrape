@@ -6,7 +6,15 @@ import urllib
 import sys
 
 userHomePath = Path.home() #current user's main directory
-downloadFolderPath = userHomePath  / "Downloads" / "scrape" #stores the user's downloads directory into a variable
+downloadFolderPath = userHomePath  / "Downloads" #stores the user's downloads directory into a variable
+scrapeFolderPath = downloadFolderPath / "scrape"
+newFolder = os.path.join(downloadFolderPath, "scrape")
+
+
+print("Creating new folder in your downloads folder for the images")
+
+if not os.path.exists(newFolder):
+	os.mkdir(newFolder)
 
 page = 0
 lastPage = 67
@@ -41,7 +49,7 @@ while page <= lastPage:
             # Download the image
             if img_url:
                 img_name = f'image_{cardNumber}.jpg'
-                img_path = os.path.join(downloadFolderPath, img_name)
+                img_path = os.path.join(scrapeFolderPath, img_name)
                 urllib.request.urlretrieve(img_url, img_path)
                 print(f"Downloaded: {img_name}")
                 cardNumber += 1
