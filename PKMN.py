@@ -6,9 +6,9 @@ import urllib
 import sys
 
 userHomePath = Path.home() #current user's main directory
-downloadFolderPath = userHomePath  / "Downloads" #stores the user's downloads directory into a variable
-scrapeFolderPath = downloadFolderPath / "scrape"
-newFolder = os.path.join(downloadFolderPath, "scrape")
+downloadFolderPath = userHomePath  / "Downloads" #downloads folder variable
+scrapeFolderPath = downloadFolderPath / "scrape" #new folder variable for scrape folder
+newFolder = os.path.join(downloadFolderPath, "scrape") #create new folder in downloads folder
 
 
 print("Creating new folder in your downloads folder for the images")
@@ -29,7 +29,7 @@ while page <= lastPage:
     response = requests.get(url)
 
 
-    print(response)#check if listening
+    print(response)#check if listening, will print out if new page
 
     #parse html
     tree = html.fromstring(response.content)
@@ -47,7 +47,7 @@ while page <= lastPage:
             # Get the image source URL
             img_url = img.get('src') 
             # Download the image
-            if img_url < 3992: #3992 is the last card number as of Paldean Fates
+            if img_url < 3991: #3992 is the last card number as of Paldean Fates
                 img_name = f'image_{cardNumber}.jpg'
                 img_path = os.path.join(scrapeFolderPath, img_name)
                 urllib.request.urlretrieve(img_url, img_path)
