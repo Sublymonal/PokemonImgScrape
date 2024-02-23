@@ -23,7 +23,7 @@ lastCard = 60
 while page <= lastPage:
     page+=1
     card = 1
-    pageCounter = 1
+    counter = 1
     url = f"https://pkmncards.com/format/e-g-standard-2024/page/{page}"
 
     response = requests.get(url)
@@ -39,8 +39,8 @@ while page <= lastPage:
         xpath = f"/html/body/div/div/div/div[2]/main/article[{card}]/div/a/img"
 
         image_elements = tree.xpath(xpath)
-        print(pageCounter)
-        pageCounter+=1
+        #print(counter) #uncomment to see the card number on page
+        counter+=1
 
         # Download images
         for index, img in enumerate(image_elements):
