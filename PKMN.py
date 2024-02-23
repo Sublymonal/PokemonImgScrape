@@ -47,7 +47,7 @@ while page <= lastPage:
             # Get the image source URL
             img_url = img.get('src') 
             # Download the image
-            if img_url:
+            if img_url < 3992: #3992 is the last card number as of Paldean Fates
                 img_name = f'image_{cardNumber}.jpg'
                 img_path = os.path.join(scrapeFolderPath, img_name)
                 urllib.request.urlretrieve(img_url, img_path)
@@ -55,7 +55,7 @@ while page <= lastPage:
                 cardNumber += 1
                 card+=1
             else:
-                print(f"No image URL found for element {index}")
+                print("Download complete!!!")
                 exit = input("Please press the return key to exit")
                 sys.exit()
                 
