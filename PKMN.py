@@ -47,7 +47,7 @@ while page <= lastPage:
             # Get the image source URL
             img_url = img.get('src') 
             # Download the image
-            if cardNumber < 3992: #3992 is the last card number as of Paldean Fates
+            if cardNumber < 3035: 
                 img_name = f'image_{cardNumber}.jpg'
                 img_path = os.path.join(scrapeFolderPath, img_name)
                 urllib.request.urlretrieve(img_url, img_path)
