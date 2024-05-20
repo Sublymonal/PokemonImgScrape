@@ -17,14 +17,14 @@ if not os.path.exists(newFolder):
 	os.mkdir(newFolder)
 
 page = 0
-lastPage = 67
+lastPage = 51
 cardNumber = 0
 lastCard = 60
 while page <= lastPage:
     page+=1
     card = 1
     counter = 1
-    url = f"https://pkmncards.com/format/e-g-standard-2024/page/{page}"
+    url = f"https://pkmncards.com/format/f-on-standard-2025/{page}"
 
     response = requests.get(url)
 
